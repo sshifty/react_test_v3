@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import artworkReducer from "./artworkReducer";
 
 const reducers = combineReducers({
-  allArtwork: artworkReducer,
+  artworks: artworkReducer,
 });
 
 export default reducers;
