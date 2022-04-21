@@ -13,10 +13,7 @@ const ArtworkList = () => {
     
   const itemsPerPage = 25;
   const artworks = useSelector((state) => state.artworks, shallowEqual);
-  const favs = useSelector(
-    (state) => state.favourites.map((art) => art.id),
-    shallowEqual
-  );
+  
   const dispatch = useDispatch();
   const { getArtworks } = bindActionCreators(artworkActionsCreators, dispatch);
 

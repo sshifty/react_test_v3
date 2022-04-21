@@ -20,6 +20,7 @@ const ArtworkDetail = ({ item }) => {
     favouriteIDs.indexOf(item.id)===-1?addFavourite(item):removeFavourite(item.id);
     
   };
+  console.log(item)
   const buttonContext=favouriteIDs.indexOf(item.id)===-1?"ADD":"REMOVE"
   return (
     <div className={styles.artworkDetailContainer}>
@@ -27,7 +28,7 @@ const ArtworkDetail = ({ item }) => {
         <h1>{item.title}</h1>
       </Link>
 
-      <img className={styles.image} src={`${item.imageURL}`} alt={item.title} />
+      <img className={styles.image} src={`${item.imageURL}`} alt={item.thumbnail?item.thumbnail.alt_text:""} />
       <div className={styles.btnContainer}>
         <button onClick={() => chooseAction()}>{buttonContext}</button>
       </div>
