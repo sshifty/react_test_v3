@@ -4,15 +4,19 @@ import { bindActionCreators } from "redux";
 import { artworkActionsCreators } from "../../state/action-creators";
 import ArtworkDetail from "./ArtworkDetail";
 import ReactPaginate from "react-paginate";
-import Paginate from "./Paginate.css";
 import styles from "./ArtworkList.module.css";
+import Paginate from "./Paginate.css";
 
 const ArtworkList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-
+    
   const itemsPerPage = 25;
   const artworks = useSelector((state) => state.artworks, shallowEqual);
+  const favs = useSelector(
+    (state) => state.favourites.map((art) => art.id),
+    shallowEqual
+  );
   const dispatch = useDispatch();
   const { getArtworks } = bindActionCreators(artworkActionsCreators, dispatch);
 

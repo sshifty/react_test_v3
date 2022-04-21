@@ -9,7 +9,7 @@ const App = () => {
       <div className={styles.container}>
         <Routes>
           <Route path="/" element={<ArtworkList />}/>
-          <Route path="/:artworkID" element={<SingleArtwork />}/>
+          <Route path="/artwork/:artworkID" element={<SingleArtwork />}/>
           <Route path="/favourites" element={<FavouriteArtwork />}/>
         </Routes>
       </div>
