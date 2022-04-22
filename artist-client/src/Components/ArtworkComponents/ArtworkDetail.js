@@ -27,12 +27,13 @@ const ArtworkDetail = ({ item }) => {
       <Link to={`/artwork/${item.id}`}>
         <h1>{item.title}</h1>
       </Link>
-
-      <img
-        className={styles.image}
-        src={`${item.imageURL}`}
-        alt={item.thumbnail ? item.thumbnail.alt_text : ""}
-      />
+      <div className={styles.imageContainer}>
+        <img
+          className={styles.image}
+          src={`${item.imageURL}`}
+          alt={item.thumbnail ? item.thumbnail.alt_text : item.title}
+        />
+      </div>
       <div className={styles.btnContainer}>
         <button onClick={() => chooseAction()}>{buttonContext}</button>
       </div>

@@ -11,7 +11,8 @@ const artworkReducer = (state = null, action) => {
             imageURL: `https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`,
           };
         }),
-      };
+      };  
+
     default:
       return state;
   }
