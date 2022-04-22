@@ -13,7 +13,7 @@ const Controls = ({ handleChange, onSearch, itemsPerPage }) => {
         <div className={styles.controlsInput}>
           <div className={styles.inputContainer}>
             <div className={styles.searchContainer}>
-              <input onChange={handleChange} name="searchValue" type="text" placeholder='Search...'/>
+              <input onChange={handleChange} name="searchValue" type="text" placeholder='Search by title'/>
               <SearchIcon />
             </div>
           </div>

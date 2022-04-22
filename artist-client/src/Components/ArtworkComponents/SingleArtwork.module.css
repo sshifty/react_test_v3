@@ -1,0 +1,15 @@
+.singleArtworkContainer {
+  padding: 100px 1rem 0 1rem;
+  display: flex;
+  justify-content: center; 
+  gap:2rem;
+  
+
+}
+
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  max-height:600px; 
+}

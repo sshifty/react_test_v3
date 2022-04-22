@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { artworkActionsCreators } from "../../state/action-creators";
 import styles from "./SingleArtwork.module.css";
@@ -9,7 +9,7 @@ const SingleArtwork = () => {
   const { artworkID } = useParams();
   const artwork = useSelector((state) => state.singleArtwork);
   const dispatch = useDispatch();
-  const { getSingleArtwork } = bindActionCreators(
+  const { getSingleArtwork, resetSingleArtwork } = bindActionCreators(
     artworkActionsCreators,
     dispatch
   );
@@ -17,7 +17,33 @@ const SingleArtwork = () => {
     getSingleArtwork(artworkID);
   }, []);
 
-  return <div className={styles.singleArtworkContainer}></div>;
+  if (!artwork) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.singleArtworkContainer}>
+        <div className={styles.artist}>
+          <h1>Artist</h1>
+          <h3>{artwork.artist ? artwork.artist.title : "Unknown"}</h3>
+        </div>
+        <div className={styles.imageContainer}>
+          <img
+            className={styles.image}
+            src={artwork.imageURL}
+            alt={artwork.data.thumbnail.alt_text}
+          />
+        </div>
+        <div className={styles.infos}>
+          <h1>{artwork.data.title}</h1>
+          <div className={styles.infosDesc}></div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default SingleArtwork;
