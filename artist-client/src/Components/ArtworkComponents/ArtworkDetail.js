@@ -25,8 +25,6 @@ const ArtworkDetail = ({ item }) => {
   return (
     <div className={styles.artworkDetailContainer}>
       <Link to={`/artwork/${item.id}`}>
-        <h1>{item.title}</h1>
-      </Link>
       <div className={styles.imageContainer}>
         <img
           className={styles.image}
@@ -34,8 +32,11 @@ const ArtworkDetail = ({ item }) => {
           alt={item.thumbnail ? item.thumbnail.alt_text : item.title}
         />
       </div>
+      
+        <h1>{item.title}</h1>
+      </Link>
       <div className={styles.btnContainer}>
-        <button onClick={() => chooseAction()}>{buttonContext}</button>
+        <button className={`${styles.btn} ${buttonContext==="ADD"?styles.btnAdd:styles.btnRemove}`} onClick={() => chooseAction()}>{buttonContext}</button>
       </div>
     </div>
   );

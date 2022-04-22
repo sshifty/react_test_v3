@@ -1,19 +1,19 @@
-.artworkListContainer{
-    height: 100%;
-    display: flex;
-    gap:2rem;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: hidden;
-    padding:1rem;
+.artworkListContainer {
+  min-height: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  padding-top: 100px;
+  overflow-y: hidden;
 }
 
-.artworkListDetails{
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap:1rem;
-    padding:1rem;
-    flex-wrap: wrap;
-    overflow-y: scroll;
+.artworkListDetails {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
 }

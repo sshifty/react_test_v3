@@ -1,8 +1,14 @@
 .navContainer {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
   height: 80px;
   display: flex;
   align-items: center;
   background-color: var(--nav-bg);
+  z-index: 1; 
+  
 }
 
 .navInside {
@@ -10,7 +16,7 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 1rem; 
 }
 .navItems {
   display: flex;

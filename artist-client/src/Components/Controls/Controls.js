@@ -1,3 +1,4 @@
+import SearchIcon from '@mui/icons-material/Search';
 import styles from "./Controls.module.css";
 
 const Controls = ({ handleChange, onSearch, itemsPerPage }) => {
@@ -8,21 +9,37 @@ const Controls = ({ handleChange, onSearch, itemsPerPage }) => {
 
   return (
     <div className={styles.controlsContainer}>
-      <div className={styles.inputContainer}>
-        <input onChange={handleChange} name="searchValue" type="text" />
+      <div className={styles.controlsInside}>
+        <div className={styles.controlsInput}>
+          <div className={styles.inputContainer}>
+            <div className={styles.searchContainer}>
+              <input onChange={handleChange} name="searchValue" type="text" placeholder='Search...'/>
+              <SearchIcon />
+            </div>
+          </div>
+          <div className={styles.inputContainer}>
+            <select
+              onChange={handleChange}
+              name="itemsPerPage"
+              id="itemsPerPage"
+            >
+              {array.map((i) => {
+                return (
+                  <option
+                    value={i}
+                    selected={itemsPerPage === i ? "selected" : ""}
+                  >
+                    {i}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
+        <button className={styles.btn} onClick={onSearch}>
+          search
+        </button>
       </div>
-      <div className={styles.inputContainer}>
-        <select onChange={handleChange} name="itemsPerPage" id="itemsPerPage">
-          {array.map((i) => {
-            return (
-              <option value={i} selected={itemsPerPage === i ? "selected" : ""}>
-                {i}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <button onClick={onSearch}>search</button>
     </div>
   );
 };

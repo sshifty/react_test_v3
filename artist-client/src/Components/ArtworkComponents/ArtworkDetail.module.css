@@ -1,28 +1,52 @@
 .artworkDetailContainer {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 0.5rem;
-  width: 200px;
+  max-width: 300px;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--dark-text);
   text-align: center;
-  
 }
+
 .artworkDetailContainer a {
-    text-decoration: none;
-    color:inherit;
+  flex:1;
+  margin-bottom: auto;
+  text-decoration: none;
+  color: inherit;
 }
-.imageContainer{
-  overflow: hidden;
-  max-height: 200px;
+.imageContainer {
+  overflow: hidden;  
 }
 .image {
-  height: 100%;
+  
   width: 100%;
-  flex-grow: 1; 
+  flex-grow: 1;
   margin-top: auto;
-  transition: transform .3s;
+  transition: transform 0.3s;  
 }
-.image:hover{
+.image:hover {
   transform: scale(1.2);
+}
+h1{
+  font-weight: 600;
+
+}
+
+.btn{
+  width:100%;
+  border:none;
+  padding:.3rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.btnAdd{
+  background-color: var(--add-bg);
+}
+.btnRemove{
+  background-color: var(--remove-bg);
+}
+.btn:hover{
+  opacity: .9;
 }

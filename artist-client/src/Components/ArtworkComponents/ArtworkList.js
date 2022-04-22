@@ -15,7 +15,7 @@ const ArtworkList = () => {
     searchValue: "",
     itemsPerPage: 25,
   });
-  //fix this
+ 
 
   const artworks = useSelector((state) => state.artworks, shallowEqual);
 
@@ -71,32 +71,38 @@ const ArtworkList = () => {
       getArtworks(currentPage, controlState.itemsPerPage);
     }
   }, [currentPage, controlState.itemsPerPage]);
-  return (
-    <div className={styles.artworkListContainer}>
-      <Controls
-        handleChange={handleChange}
-        onSearch={onSearch}
-        itemsPerPage={controlState.itemsPerPage}
-      />
-      <div className={styles.artworkListDetails}>
-        {artworks
-          ? artworks.data.map((item) => {
-              return <ArtworkDetail item={item} />;
-            })
-          : "Loading"}
+  if (!artworks) {
+    return (
+      <div>
+        <h1>Loading...</h1>
       </div>
-      <ReactPaginate
-        className={`${styles.paginate} react-paginate`}
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-      />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={styles.artworkListContainer}>
+        <Controls
+          handleChange={handleChange}
+          onSearch={onSearch}
+          itemsPerPage={controlState.itemsPerPage}
+        />
+        <div className={styles.artworkListDetails}>
+          {artworks.data.map((item) => {
+            return <ArtworkDetail item={item} />;
+          })}
+        </div>
+        <ReactPaginate
+          className={`${styles.paginate} react-paginate`}
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+        />
+      </div>
+    );
+  }
 };
 
 export default ArtworkList;

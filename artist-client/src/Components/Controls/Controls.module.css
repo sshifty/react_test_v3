@@ -1,0 +1,44 @@
+.controlsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.controlsInside {
+  display: flex;
+  flex-direction: column;
+}
+.controlsInput {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+.searchContainer {
+  display: flex;
+  align-items: center;
+  padding:.1rem;
+  border:2px solid #000;
+  border-radius: 5px;
+}
+.searchContainer:focus-within{
+    border-color: var(--yellow-bg);
+}
+.searchContainer input {
+  background-color: transparent;
+  border: none;
+}
+.searchContainer input:focus {
+  border: none;
+  outline: none;
+}
+.btn {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--yellow-bg);
+  color: #fff;
+  font-weight: 550;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
