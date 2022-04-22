@@ -61,3 +61,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*Main colors*/
+
+:root{
+	--nav-bg:#434246;
+	--light-text:#c1c1c2;
+	--dark-text:#a5a2a9;
+	--light-bg:#eeeeee;
+	--yellow-bg:#d1af78;
+}

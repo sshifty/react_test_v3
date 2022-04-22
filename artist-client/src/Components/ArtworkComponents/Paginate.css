@@ -21,7 +21,7 @@ li.break a {
   text-transform: uppercase;
 }
 li.active a {
-  background-color: blue;
+  background-color: var(--yellow-bg);
   border-color: transparent;
   color: white;
   min-width: 32px;
@@ -35,5 +35,5 @@ li.disabled a {
 }
 
 li.selected a {
-  background-color: blue;
+  background-color: var(--yellow-bg);
 }
