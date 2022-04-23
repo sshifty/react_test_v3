@@ -1,3 +1,4 @@
+/*Use custom hook for fetching data and store the data in local state*/
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
@@ -9,15 +10,17 @@ const SingleArtwork = () => {
   const { artworkID } = useParams();
   const artwork = useSelector((state) => state.singleArtwork);
   const dispatch = useDispatch();
-  const { getSingleArtwork, resetSingleArtwork } = bindActionCreators(
+  const { getSingleArtwork} = bindActionCreators(
     artworkActionsCreators,
     dispatch
   );
   useEffect(() => {
-    getSingleArtwork(artworkID);
+    if (!artwork || artworkID != artwork.data.id) {
+      getSingleArtwork(artworkID);
+    }
   }, []);
 
-  if (!artwork) {
+  if (!artwork || artwork.data.id != artworkID) {
     return (
       <div>
         <h1>Loading...</h1>

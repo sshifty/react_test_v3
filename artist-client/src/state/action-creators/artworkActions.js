@@ -1,4 +1,8 @@
-import { ARTWORK_FETCHALL, ARTWORK_FETCH_SINGLE , ARTWORK_RESET} from "../typeConstants";
+import {
+  ARTWORK_FETCHALL,
+  ARTWORK_FETCH_SINGLE,
+  ARTWORK_RESET,
+} from "../typeConstants";
 
 export const getArtworks = (page = 1, pageLimit = 25) => {
   return async (dispatch, getState) => {
@@ -34,14 +38,7 @@ export const getSingleArtwork = (artID) => {
     }
   };
 };
-export const resetSingleArtwork = () => {
-  return (dispatch) => {
-    dispatch({
-      type: ARTWORK_RESET,
-      payload: {},
-    });
-  };
-};
+
 export const getQueryArtwork = (searchValue, page = 1, pageLimit = 25) => {
   return async (dispatch, getState) => {
     try {

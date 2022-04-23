@@ -16,13 +16,12 @@ const ArtworkDetail = ({ item }) => {
     dispatch
   );
 
+  const notFavourite = favouriteIDs.indexOf(item.id) === -1;
   const chooseAction = () => {
-    favouriteIDs.indexOf(item.id) === -1
-      ? addFavourite(item)
-      : removeFavourite(item.id);
+    notFavourite ? addFavourite(item) : removeFavourite(item.id);
   };
 
-  const buttonContext = favouriteIDs.indexOf(item.id) === -1 ? "ADD" : "REMOVE";
+  const buttonContext = notFavourite ? "ADD" : "REMOVE";
   return (
     <div className={styles.artworkDetailContainer}>
       <Link to={`/artwork/${item.id}`}>
