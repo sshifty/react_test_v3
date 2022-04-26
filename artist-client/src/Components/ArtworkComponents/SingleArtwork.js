@@ -35,7 +35,8 @@ const SingleArtwork = () => {
   } else {
     const notFavourite = favouriteIDs.indexOf(artwork.data.id) === -1;
     const chooseAction = () => {
-      notFavourite ? addFavourite(artwork) : removeFavourite(artwork.data.id);
+      console.log(artwork)
+      notFavourite ? addFavourite(artwork.data) : removeFavourite(artwork.data.id);
     };
 
     const buttonContext = notFavourite ? "ADD" : "REMOVE";

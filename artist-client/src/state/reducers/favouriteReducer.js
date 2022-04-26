@@ -5,6 +5,7 @@ const initState = () => {
 };
 const favouriteReducer = (state = initState(), action) => {
   const tempState = JSON.parse(JSON.stringify(state));
+  console.log(tempState)
   switch (action.type) {
     case FAVOURITE_ADD:
       tempState.push(action.payload);
