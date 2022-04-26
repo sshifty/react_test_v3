@@ -5,7 +5,7 @@ const singleArtworkReducer = (state = null, action) => {
   switch (action.type) {
     case ARTWORK_FETCH_SINGLE:
       return {
-        ...action.payload,
+        ...action.payload.data,
         imageURL: `https://www.artic.edu/iiif/2/${action.payload.data.image_id}/full/843,/0/default.jpg`,
       };
     default:

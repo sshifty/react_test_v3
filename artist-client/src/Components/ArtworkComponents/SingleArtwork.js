@@ -22,21 +22,20 @@ const SingleArtwork = () => {
       dispatch
     );
   useEffect(() => {
-    if (!artwork || artworkID != artwork.data.id) {
+    if (!artwork || artworkID != artwork.id) {
       getSingleArtwork(artworkID);
     }
   }, []);
-  if (!artwork || artwork.data.id != artworkID) {
+  if (!artwork || artwork.id != artworkID) {
     return (
       <div className={styles.loading}>
         <h1>Loading...</h1>
       </div>
     );
   } else {
-    const notFavourite = favouriteIDs.indexOf(artwork.data.id) === -1;
-    const chooseAction = () => {
-      console.log(artwork)
-      notFavourite ? addFavourite(artwork.data) : removeFavourite(artwork.data.id);
+    const notFavourite = favouriteIDs.indexOf(artwork.id) === -1;
+    const chooseAction = () => {     
+      notFavourite ? addFavourite(artwork) : removeFavourite(artwork.id);
     };
 
     const buttonContext = notFavourite ? "ADD" : "REMOVE";
@@ -45,34 +44,34 @@ const SingleArtwork = () => {
       <div className={styles.singleArtworkContainer}>
         <div className={styles.artist}>
           <h1 className={styles.yellowTitle}>Artist</h1>
-          <h3>{artwork.data.artist_title || "Unknown"}</h3>
+          <h3>{artwork.artist_title || "Unknown"}</h3>
         </div>
         <div className={styles.imageContainer}>
           <img
             className={styles.image}
             src={artwork.imageURL}
-            alt={artwork.data.thumbnail.alt_text}
+            alt={artwork.thumbnail.alt_text}
           />
         </div>
         <div className={styles.infos}>
-          <h1 className={styles.yellowTitle}>{artwork.data.title}</h1>
+          <h1 className={styles.yellowTitle}>{artwork.title}</h1>
           <div className={styles.infosDesc}>
             <ul>
               <li>
                 <span className={styles.yellowTitle}>Place of Origin:</span>{" "}
-                {artwork.data.place_of_origin}
+                {artwork.place_of_origin}
               </li>
               <li>
                 <span className={styles.yellowTitle}>Display type:</span>{" "}
-                {artwork.data.medium_display}
+                {artwork.medium_display}
               </li>
               <li>
                 <span className={styles.yellowTitle}>Dimensions:</span>{" "}
-                {artwork.data.dimensions}
+                {artwork.dimensions}
               </li>
               <li>
                 <span className={styles.yellowTitle}>Department:</span>{" "}
-                {artwork.data.department_title}
+                {artwork.department_title}
               </li>
             </ul>
           </div>
