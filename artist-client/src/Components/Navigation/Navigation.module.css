@@ -18,7 +18,7 @@
   justify-content: space-between;
   padding: 0 1rem; 
 }
-.navItems {
+.desktop {
   display: flex;
   gap: 1rem;
 }
@@ -52,4 +52,45 @@
 .selected,
 .linkContainer:hover {
   background-color: var(--yellow-bg);
+}
+.mobileMenu{
+  display: none;
+}
+@media only screen and (max-width: 600px){
+  .desktop{
+    display: none;
+  }
+  .mobileMenu{
+    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .menuLogo{
+    height: 30px;
+    width: 30px;
+    color:#fff;
+    cursor: pointer;
+  }
+  .mobileMenuInside{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap:.3rem;
+    background-color: var(--nav-bg);   
+  }
+  .visible {
+    top: 100%;
+    right: -1rem;
+    transition: 0.3s;
+  }
+  .hidden {
+    opacity: 0;
+    top: 100%;
+    right: -100%;
+    transition: 0.3s;
+  }
+  .linkContainer{
+    padding:.5rem;
+  }
 }

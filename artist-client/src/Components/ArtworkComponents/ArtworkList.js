@@ -73,7 +73,7 @@ const ArtworkList = () => {
   }, [currentPage, controlState.itemsPerPage]);
   if (!artworks) {
     return (
-      <div>
+      <div className={styles.loading}>
         <h1>Loading...</h1>
       </div>
     );
