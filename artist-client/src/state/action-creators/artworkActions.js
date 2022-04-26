@@ -45,8 +45,7 @@ export const getQueryArtwork = (searchValue, page = 1, pageLimit = 25) => {
       const resp = await fetch(
         `https://api.artic.edu/api/v1/artworks/search?q=${searchValue}&query[term][is_public_domain]=true&limit=${pageLimit}&page=${page}&fields=image_id,title,thumbnail`
       );
-      const data = await resp.json();
-      console.log(data);
+      const data = await resp.json();     
       return dispatch({
         type: ARTWORK_FETCHALL,
         payload: data,

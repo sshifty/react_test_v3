@@ -37,3 +37,17 @@ li.disabled a {
 li.selected a {
   background-color: var(--yellow-bg);
 }
+
+@media only screen and (max-width: 500px) {
+  .react-paginate {
+    margin-top: 1rem;
+  }
+  .react-paginate li:not(.previous, .next, .selected) {
+    display: none;
+  }
+  .react-paginate li a {
+    margin: 0.1rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
+}

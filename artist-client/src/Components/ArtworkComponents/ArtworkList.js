@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { bindActionCreators } from "redux";
 import { artworkActionsCreators } from "../../state/action-creators";
+import { v4 as uuidv4 } from "uuid";
 import ArtworkDetail from "./ArtworkDetail";
 import ReactPaginate from "react-paginate";
 import styles from "./ArtworkList.module.css";
@@ -87,7 +88,7 @@ const ArtworkList = () => {
         />
         <div className={styles.artworkListDetails}>
           {artworks.data.map((item) => {
-            return <ArtworkDetail item={item} />;
+            return <ArtworkDetail key={uuidv4()} item={item} />;
           })}
         </div>
         <ReactPaginate
