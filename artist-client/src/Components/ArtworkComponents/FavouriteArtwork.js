@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Controls from "../Controls/Controls";
 import ReactPaginate from "react-paginate";
 import ArtworkDetail from "./ArtworkDetail";
+import { v4 as uuidv4 } from "uuid";
 import styles from "./ArtworkList.module.css";
 import { fabClasses } from "@mui/material";
 
@@ -75,7 +76,7 @@ const FavouriteArtwork = () => {
         />
         <div className={styles.artworkListDetails}>
           {currentFav.map((item) => {
-            return <ArtworkDetail item={item} />;
+            return <ArtworkDetail key={uuidv4()} item={item} />;
           })}
         </div>
         <ReactPaginate

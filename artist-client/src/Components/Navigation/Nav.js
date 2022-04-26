@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import styles from "./Navigation.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import { v4 as uuidv4 } from "uuid";
 import logo from "../../images/logo.webp";
 const Nav = () => {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ const Nav = () => {
   const renderItems = menuNames.map((menu) => {
     return (
       <div
+        key={uuidv4()}
         className={`${styles.linkContainer} ${
           pathname === "/" + menu ? styles.selected : null
         }`}

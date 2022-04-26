@@ -1,4 +1,5 @@
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
+import { v4 as uuidv4 } from "uuid";
 import styles from "./Controls.module.css";
 
 const Controls = ({ handleChange, onSearch, itemsPerPage }) => {
@@ -13,7 +14,12 @@ const Controls = ({ handleChange, onSearch, itemsPerPage }) => {
         <div className={styles.controlsInput}>
           <div className={styles.inputContainer}>
             <div className={styles.searchContainer}>
-              <input onChange={handleChange} name="searchValue" type="text" placeholder='Search by title'/>
+              <input
+                onChange={handleChange}
+                name="searchValue"
+                type="text"
+                placeholder="Search by title"
+              />
               <SearchIcon />
             </div>
           </div>
@@ -26,6 +32,7 @@ const Controls = ({ handleChange, onSearch, itemsPerPage }) => {
               {array.map((i) => {
                 return (
                   <option
+                    key={uuidv4()}
                     value={i}
                     selected={itemsPerPage === i ? "selected" : ""}
                   >
